@@ -1,36 +1,63 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loop Through Word</title>
+  <title>Type Writer Text</title>
+  <style>
+    #typewriter {
+      text-align: center;
+      font-size: 24px;
+      color: dimgrey;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    body {
+      background-color: black;
+      margin: 0;
+    }
+
+    .copyright {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+
 </head>
 
 <body>
-  <h1>Loop Through Word</h1>
-  
+  <div class="embed">
+    <div id="typewriter"></div>
+  </div>
   <script>
-    let word = "Testingifthiswillworklol";
-    for (let i = 0; i < word.length; i++) {
-      document.write(word[i] + "<br>");
+    var i = 0;
+    var txt = 'The website is under construction. You can check out my ';
+    var link = '<a href="https://www.linkedin.com/in/hassanjamali/" style="color: #ADD8E6;">LinkedIn </a> in the meantime.';
+
+    function typeWriter() {
+      if (i < txt.length) {
+        document.getElementById("typewriter").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      } else {
+        document.getElementById("typewriter").innerHTML += link;
+      }
     }
+    typeWriter();
   </script>
 
-  <style>
-    .footer {
-      text-align: center;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #333;
-      color: #fff;
-      padding: 10px 0;
-    }
-  </style>
-  <footer class="footer">
-    <p>&copy; 2022 My Portfolio. All rights reserved.</p>
-  </footer>
+  <div class="copyright">
+    <p style="color: dimgrey;">&copy; 2024 Hassan Jamali</p>
+  </div>
+
+</body>
+
 </html>
